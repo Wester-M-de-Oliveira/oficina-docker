@@ -4,7 +4,7 @@ import 'dotenv/config';
 
 const typeormConfig = new DataSource({
   type: 'mysql',
-  host: process.env.DB_HOST || 'db', // O nome do serviço no Docker Compose
+  host: process.env.DB_HOST || 'db',
   port: parseInt(process.env.DB_PORT, 10) || 3306,
   database: process.env.DB_DATABASE || 'oficina-docker',
   username: process.env.DB_USERNAME || 'root',
