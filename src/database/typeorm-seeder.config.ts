@@ -10,7 +10,7 @@ const typeormSeederConfig = new DataSource({
   username: process.env.DB_USERNAME || '',
   password: process.env.DB_PASSWORD || '',
   synchronize: false,
-  migrationsTableName: 'migrations_ms_org_escolar_seeders',
+  migrationsTableName: 'migrations_seeder',
   entities: [__dirname + '/../**/*.entity{.ts,.js}'],
   migrations: [__dirname + '/seeders/**/*{.ts,.js}'],
   namingStrategy: new SnakeNamingStrategy(),
