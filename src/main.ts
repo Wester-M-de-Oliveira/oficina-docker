@@ -13,13 +13,11 @@ async function bootstrap() {
 
   const port = config.get<number>('PORT', 3555);
 
-  // Configurar validações globais
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
       transform: true,
       exceptionFactory: (errors) => {
-        // Personalizar mensagens de erro
         return new BadRequestException(errors);
       },
       validationError: {
