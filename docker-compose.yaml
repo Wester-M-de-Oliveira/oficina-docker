@@ -11,25 +11,30 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
-    environment:
-      NODE_ENV: development
     depends_on:
       - db
     command: npm run start:dev
 
+    networks:
+      - docker-net
+
   db:
-    image: mariadb:latest
-    # container_name: mariadb-db
+    image: mariadb
+    container_name: mariadb-oficina
     restart: always
     environment:
-      MARIADB_ROOT_PASSWORD: root
-      MARIADB_DATABASE: oficina-docker
-      MARIADB_USER: appuser
-      MARIADB_PASSWORD: apppassword
+      - MYSQL_DATABASE=${DB_DATABASE}
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
     ports:
-      - "3345:3306"
+      - '3367:3306'
     volumes:
-      - oficina-docker:/var/lib/mysql
+      - mariadb-oficina-docker:/var/lib/mysql
+    networks:
+      - docker-net
 
 volumes:
-  oficina-docker:
+  mariadb-oficina-docker:
+
+networks:
+  docker-net:
+    driver: bridge
