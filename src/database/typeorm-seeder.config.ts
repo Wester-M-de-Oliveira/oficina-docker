@@ -4,7 +4,7 @@ import 'dotenv/config';
 
 const typeormSeederConfig = new DataSource({
   type: 'mysql',
-  host: process.env.DB_HOST || 'localhost',
+  host: process.env.DB_HOST || 'db',
   port: parseInt(process.env.DB_PORT) || 3306,
   database: process.env.DB_DATABASE || '',
   username: process.env.DB_USERNAME || '',
