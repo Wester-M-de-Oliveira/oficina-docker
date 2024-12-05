@@ -19,7 +19,7 @@ services:
 
   db:
     image: mariadb:latest
-    # container_name: mariadb-db
+    # container_name: mariadb-dbz
     restart: always
     environment:
       MARIADB_ROOT_PASSWORD: root
